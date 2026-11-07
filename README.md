@@ -21,3 +21,7 @@ npm start
 Mobilde ikonlar kaydırılabilir, dock ekrana sığar, pencereler yeniden boyutlandırmada görünür alanda tutulur. Escape pencereyi kapatır, Tab açık pencerede dolaşır. Hareket azaltma tercihi desteklenir.
 
 CV dosyası kaynakta yoktu; CV penceresi e-posta ile talep bağlantısı sunar. Alan adı yayını ve DNS ayarı yapılmamıştır.
+
+## Oyun görselleri
+
+Neon Wings dışındaki 13 oyunun ikonları ve üçer ekran görüntüsü resmi App Store kayıtlarından alınmıştır. Kaynak adresleri ve yayıncı bilgileri `lib/game-media.json` içinde tutulur. Görseller WebP biçiminde `public/images/games` altında yerel olarak sunulur.

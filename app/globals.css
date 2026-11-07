@@ -110,3 +110,5 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--yl);outline-offset:
 @media(max-width:360px){.gr3{grid-template-columns:1fr}.h{gap:8px}.h h2{font-size:20px}.phone .in{padding:10px 4px}.st{gap:4px}.st b{font-size:14px}}
 @media(max-height:500px){#ic{bottom:96px}.dock{bottom:14px;height:44px}.dk i{width:42px;height:42px;font-size:24px}.phone,.w,.w.big{max-height:calc(100dvh - 135px)}.phone{height:calc(100dvh - 135px)}.hero{top:15vh}.hint{display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+
+.sh img{width:auto;height:230px;max-width:none;object-fit:contain;flex-shrink:0}
