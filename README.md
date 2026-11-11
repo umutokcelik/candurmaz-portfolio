@@ -66,3 +66,11 @@ Sağ üstte tooltip destekli sıfırlama, otomatik dönüş ve tam ekran ikonlar
 İnceleme katmanı `lib/viewer/inspection.js`, menü tanımı `lib/viewer/modes.js` içindedir. Menü klavyeyle gezinmeyi destekler; açık menüde Escape yalnızca menüyü kapatır. Geçici inceleme materyalleri ve dokuları pencereyle birlikte temizlenir. Özel kanal shader’ları mevcut statik modeller için hazırlanmıştır; ileride iskelet animasyonlu modeller eklenirse bu shader’lara skinning desteği de eklenmelidir.
 
 Görünüm seçenekleri yüklenen modelin materyal ve geometri özelliklerinden belirlenir. Verisi olmayan kanallar ve boş gruplar gizlenir; klavye gezinmesi de yalnızca kullanılabilir seçenekleri içerir. Metalness / roughness gibi geçerli sıfır değerleri eksik veri sayılmaz. UV / normal incelemesi için tüm model parçalarında gerekli geometri verisi bulunmalıdır. Kontrol testleri: `node --test test/viewer-capabilities.test.mjs`.
+
+### Işık yönü
+
+Sağ üstteki güneş ikonu ana DirectionalLight’ı mevcut kameranın arkasına yerleştirir ve modelin merkezine yönlendirir. Kamera başka bir açıya çevrildikten sonra da aynı ikon ışığı o yeni açıya göre sıfırlar. Alt + sol tuşla sürükleme, ışığı ekranın yatay / dikey eksenlerine göre döndürür; yeni ışık oluşturmaz. Normal sürükleme kamerayı yönetmeye devam eder.
+
+Alt hareketi sırasında OrbitControls, kamera ataleti ve otomatik dönüş geçici olarak durur. Pointer up / cancel, kaybolan pointer capture, pencere odağının kaybolması ve görüntüleyicinin kapanması kontrolleri serbest bırakır. Işık ayarı Final Render, No Post-Processing ve normal inceleme stüdyo görünümlerinde görünür; ışık kullanmayan kanallarda ayarın Final Render’da görüleceği belirtilir. Kontrol mantığı `lib/viewer/lighting.js` içindedir.
+
+Kontrol testleri: `node --test test/viewer-lighting.test.mjs test/viewer-capabilities.test.mjs`.

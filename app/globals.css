@@ -222,3 +222,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--yl);outline-offset:
 @media(max-width:360px){.viewer-heading .viewer-title>span{max-width:135px;font-size:9px}.viewer-tools .viewer-icon-button{width:27px;height:29px}.viewer-heading .viewer-title strong{font-size:14px}.viewer-displaybar .viewer-meta{max-width:92px}.viewer-mode-trigger{gap:4px}}
 @media(max-height:500px){.viewer-heading{display:flex;padding:5px 10px}.viewer-heading .viewer-title>span{display:none}.viewer-heading .viewer-title strong{font-size:14px}.viewer-tools .viewer-icon-button{width:27px;height:27px}.viewer-displaybar{padding:4px 8px}.viewer-stage{min-height:80px}}
 .viewer-mode-group[hidden],.viewer-mode-group>button[hidden]{display:none}
+.viewer-canvas canvas[data-lighting-drag=true]{cursor:grabbing!important}
+.viewer-light-feedback{position:absolute;right:12px;top:12px;max-width:calc(100% - 24px);padding:7px 10px;border:1px solid #ead3a333;border-radius:6px;background:#15140cdd;color:#f0ddb0;font-size:11px;pointer-events:none;z-index:3}
+.viewer-light-feedback[hidden]{display:none}
+@media(max-width:360px){.viewer-tools{gap:3px}.viewer-tools .viewer-icon-button{width:26px}.viewer-heading .viewer-title strong{font-size:13px}.viewer-heading .viewer-title>span{max-width:120px}}
