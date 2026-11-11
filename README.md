@@ -47,7 +47,7 @@ Base: {
 }
 ```
 
-Base color ve emissive haritaları sRGB, veri haritaları lineer renk uzayında yüklenir; glTF UV yönü korunur. Örnek Blender dosyasında görsel doku ataması yoktur; arşivdeki metal dokusu ileride eşleme için ayrıca saklanmıştır. Varsayılan model görünümüne otomatik uygulanmamıştır. Bu aşama bir doku düzenleyici arayüzü içermez.
+Base color ve emissive haritaları sRGB, veri haritaları lineer renk uzayında yüklenir; glTF UV yönü korunur. Örnek Blender dosyasında görsel doku ataması yoktur; arşivdeki metal dokusu ileride eşleme için ayrıca saklanmıştır. Metal dokusu gövdenin `Base` materyaline base color haritası olarak bağlıdır. Ayrı roughness / normal haritaları bulunmadığından bu kanallara aynı görsel kopyalanmamıştır. Bu aşama bir doku düzenleyici arayüzü içermez.
 
 Pencere kapanınca canvas, kamera kontrolleri, animasyon döngüsü, geometriler, materyaller ve dokular temizlenir. Yükleme sürerken kapatma ve yeniden açma desteklenir. Tam ekran, tel kafes, otomatik dönüş ve sıfırlama kontrolleri bulunur.
 
