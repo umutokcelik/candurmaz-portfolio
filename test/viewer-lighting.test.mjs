@@ -73,3 +73,20 @@ test('screen-space drag directions remain normalized and follow camera orientati
   assert.ok(draggedLightDirection(start, rotation, 0, 250, 800, 500).distanceTo(new Vector3(0, -1, 0)) < 1e-6);
   assert.ok(Math.abs(draggedLightDirection(start, rotation, 25, 40, 0, 0).length() - 1) < 1e-6);
 });
+
+
+test('unlit models disable light gestures and reset without locking camera controls', () => {
+  const s = setup(); s.lighting.reset();
+  pointer(s.canvas, 'pointerdown', { altKey: true });
+  s.lighting.setEnabled(false);
+  assert.equal(s.lighting.dragging, false);
+  assert.equal(s.controls.enabled, true);
+  const position = s.light.position.clone(), changes = s.changes.length;
+  assert.equal(pointer(s.canvas, 'pointerdown', { altKey: true }).defaultPrevented, false);
+  s.camera.position.set(-5, 2, 3); s.lighting.reset();
+  assert.ok(s.light.position.equals(position));
+  assert.equal(s.changes.length, changes);
+  s.lighting.setEnabled(true); s.lighting.reset();
+  assert.ok(!s.light.position.equals(position));
+  s.lighting.dispose();
+});
