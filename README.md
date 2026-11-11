@@ -50,3 +50,17 @@ Base: {
 Base color ve emissive haritaları sRGB, veri haritaları lineer renk uzayında yüklenir; glTF UV yönü korunur. Örnek Blender dosyasında görsel doku ataması yoktur; arşivdeki metal dokusu ileride eşleme için ayrıca saklanmıştır. Varsayılan model görünümüne otomatik uygulanmamıştır. Bu aşama bir doku düzenleyici arayüzü içermez.
 
 Pencere kapanınca canvas, kamera kontrolleri, animasyon döngüsü, geometriler, materyaller ve dokular temizlenir. Yükleme sürerken kapatma ve yeniden açma desteklenir. Tam ekran, tel kafes, otomatik dönüş ve sıfırlama kontrolleri bulunur.
+
+### Model inceleme modları
+
+Sağ üstte tooltip destekli sıfırlama, otomatik dönüş ve tam ekran ikonları bulunur. Alt çubuktaki görünüm menüsü Render, Material Channels, Geometry ve UV gruplarını içerir. Seçim orijinal materyalleri değiştirmez; Final Render geri seçilince modelin PBR materyalleri geri yüklenir.
+
+- Final Render / No Post-Processing: stüdyo görünümü, ton eşleme açık / kapalı. Bu sürümde ek bir post-processing efekt zinciri yoktur.
+- Base Color / Emission: ilgili materyal rengi ve varsa doku haritası, ışıklandırmadan bağımsız gösterilir.
+- Metalness / Roughness: katsayılar ile glTF paketli haritalarının sırasıyla mavi / yeşil kanalları kullanılır.
+- Anisotropy: desteklenen materyallerin katsayı ve harita gücü gösterilir; tanımlanmayan kanalda varsayılan 0 açıklaması görünür.
+- Specular F0: metalik iş akışına uygun taban renk / metalness ve dielektrik IOR / specular parametrelerinden hesaplanır.
+- Matcap / Wireframe / Vertex Normals: bağımsız matcap ışıklandırması, üçgen kenarları ve gerçek normal vektörleri.
+- UV Checker: modelin mevcut UV koordinatlarına harf ve sayı içeren kontrol dokusu uygulanır; UV’ler değiştirilmez.
+
+İnceleme katmanı `lib/viewer/inspection.js`, menü tanımı `lib/viewer/modes.js` içindedir. Menü klavyeyle gezinmeyi destekler; açık menüde Escape yalnızca menüyü kapatır. Geçici inceleme materyalleri ve dokuları pencereyle birlikte temizlenir. Özel kanal shader’ları mevcut statik modeller için hazırlanmıştır; ileride iskelet animasyonlu modeller eklenirse bu shader’lara skinning desteği de eklenmelidir.
